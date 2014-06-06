@@ -52,5 +52,6 @@
 - name: get instack vm ip address
   hosts: instack-virt-host
   roles:
+    - { role: tripleo/instack/common }
     - { role: tripleo/instack/setup-tunnel }
   tags: setup-tunnel
