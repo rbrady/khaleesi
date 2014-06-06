@@ -50,7 +50,7 @@
   tags: update-overcloud-images
 
 - name: get instack vm ip address
-  hosts: instack-undercloud
+  hosts: instack-virt-host
   roles:
     - { role: tripleo/instack/setup-tunnel }
   tags: setup-tunnel
