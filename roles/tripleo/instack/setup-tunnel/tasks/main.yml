@@ -8,5 +8,3 @@
   shell: "sudo iptables -I INPUT -p tcp --dport 4067 -j ACCEPT; ssh -g -N -L 4067:{{ instack_vm_ip_result }}:22 `hostname`"
   sudo_user: "{{ instack_user }}"
   sudo: yes
-
-  `
