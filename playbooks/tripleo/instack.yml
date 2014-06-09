@@ -61,4 +61,4 @@
   roles:
     - { role: tripleo/instack/common }
     - { role: tripleo/instack/use-tunnel }
-  tags: setup-tunnel
+  tags: use-tunnel
