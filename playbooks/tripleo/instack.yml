@@ -49,9 +49,16 @@
     - { role: tripleo/instack/test-overcloud}
   tags: update-overcloud-images
 
-- name: get instack vm ip address
+- name: create tunnel to undercloud vm
   hosts: instack-virt-host
   roles:
     - { role: tripleo/instack/common }
     - { role: tripleo/instack/setup-tunnel }
+  tags: setup-tunnel
+
+- name: use the tunnel
+  hosts: instack-undercloud-vm
+  roles:
+    - { role: tripleo/instack/common }
+    - { role: tripleo/instack/use-tunnel }
   tags: setup-tunnel

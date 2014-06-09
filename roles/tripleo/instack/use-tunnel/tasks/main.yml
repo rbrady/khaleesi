@@ -1,0 +1,5 @@
+- name: get instack vm ip address inside tunnel
+  register: instack_vm_ip_addr_result
+  shell: "cd {{ instack_user_home.stdout }}; ip addr"
+  sudo_user: "{{ instack_user }}"
+  sudo: yes
