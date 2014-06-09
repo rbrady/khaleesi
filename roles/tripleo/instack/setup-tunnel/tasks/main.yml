@@ -3,3 +3,10 @@
   shell: "cd {{ instack_user_home.stdout }}; cat /var/lib/libvirt/dnsmasq/default.leases | grep $(tripleo get-vm-mac instack) | awk '{print $3;}'"
   sudo_user: "{{ instack_user }}"
   sudo: yes
+
+- name: open ssh tunnel to instack vm on port 4067
+  shell: "sudo iptables -I INPUT -p tcp --dport 4067 -j ACCEPT; ssh -g -N -L 4067:{{ instack_vm_ip_result }}:22 `hostname`"
+  sudo_user: "{{ instack_user }}"
+  sudo: yes
+
+  `
